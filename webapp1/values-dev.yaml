@@ -1,0 +1,6 @@
+namespace: dev
+
+configmap:
+  name: helmappconfigmapv1.1
+  data:
+    CUSTOM_HEADER: "This app is intended for the dev environment"
