@@ -14,4 +14,12 @@ or if you are using MiniKube do:
 
     minikube addons enable ingress
 
+2.-Create tls certificate and keys to deploy in your ingress
+
+    openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=pgadmin-basic.com" -days 365
+
+then create secret
+
+    kubectl create secret tls pgadmin-basic-com-tls --cert=tls.crt --key=tls.key
+
 STILL IN CONTRUCTION

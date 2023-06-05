@@ -1,15 +1,33 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pgadmin-ingress
   namespace: prod
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+  #   # Enable client certificate authentication
+  #   nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
+  #   # Create the secret containing the trusted ca certificates
+  #   nginx.ingress.kubernetes.io/auth-tls-secret: "default/ca-secret"
+  #   # Specify the verification depth in the client certificates chain
+  #   nginx.ingress.kubernetes.io/auth-tls-verify-depth: "1"
+  #   # Specify an error page to be redirected to verification errors
+  #   #nginx.ingress.kubernetes.io/auth-tls-error-page: "http://www.mysite.com/error-cert.html"
+  #   # Specify if certificates are passed to upstream server
+  #   nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
 spec:
+  # tls:
+  #   - secretName: pgadmin-basic-com-tls
+  #     hosts:
+  #       - pgadmin-basic.com
   rules:
   - host: pgadmin-basic.com
     http:
       paths:
         - pathType: Prefix
-          path: "/"
+          path: /
           backend:
             service:
               name: pgadmin-production
