@@ -1,1 +1,10 @@
 env: staging
+postgresql:
+  auth:
+    Password: secrets
+    username: psqluser01
+    database: psqldb01staging
+  volumePermissions:
+    enabled: true
+  PersistentVolume:
+    hostPath: /bitnami/postgresql

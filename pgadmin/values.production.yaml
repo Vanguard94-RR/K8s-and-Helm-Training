@@ -1,1 +1,13 @@
 env: production
+postgresql:
+  auth:
+    password: secrets
+    username: "psqluser01"
+    database: "psqldb01prod"
+    postgresPassword: "psql123"
+    secretKeys:
+    adminPasswordKey: "psql123"
+  volumePermissions:
+    enabled: true
+  PersistentVolume:
+    hostPath: /bitnami/postgresql
