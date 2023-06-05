@@ -1,6 +1,5 @@
 # K8s and Helm Training
 
-
 ## Ingress
 
 Create an ingress to expose the application to the exterior
