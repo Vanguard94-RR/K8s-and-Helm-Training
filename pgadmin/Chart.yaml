@@ -1,12 +1,13 @@
 apiVersion: v2
 name: pgadmin
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: basic
 dependencies:
   - name: postgresql
     version: 12.5.6
     repository: https://charts.bitnami.com/bitnami
-  # - name: nginx
-  #   version: 12.5.6
-  #   repository: https://charts.bitnami.com/bitnami
+    
+  - name: nginx-ingress-controller
+    version: 9.7.2
+    repository: https://charts.bitnami.com/bitnami
