@@ -8,11 +8,6 @@ metadata:
     env: {{ .Values.env }}
     
 spec:
-{{- if eq .Values.env "production" }}
-replicas: 2
-{{- else }} 
-  replicas: 1
-{{- end }}
   selector:
     matchLabels:
       app: pgadmin
@@ -26,6 +21,13 @@ replicas: 2
       containers:
         - name: pgadmin
           image: dpage/pgadmin4
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
           ports:
             - containerPort: 80
           env:
@@ -33,3 +35,5 @@ replicas: 2
               value: secrets123
             - name: PGADMIN_DEFAULT_EMAIL
               value: jmcm@testing.com
+
+

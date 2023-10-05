@@ -11,6 +11,7 @@
 ##       don't forget to change the securityContext;
 ##       these images run on different user IDs.
 ##
+---
 image:
   registry: registry.gitlab.com
   image: gitlab-org/gitlab-runner
@@ -116,7 +117,7 @@ checkInterval: 30
 ## A custom bash script that will be executed prior to the invocation
 ## gitlab-runner process
 #
-#preEntrypointScript: |
+# preEntrypointScript: |
 #  echo "hello"
 
 ## Specify whether the runner should start the session server.
@@ -182,7 +183,7 @@ rbac:
   podSecurityPolicy:
     enabled: false
     resourceNames:
-    - gitlab-runner
+      - gitlab-runner
 
   ## Specify one or more imagePullSecrets used for pulling the runner image
   ##
@@ -710,8 +711,7 @@ volumeMounts: []
 
 ## Additional volumes to add to the runner deployment
 ##
-volumes: []
-  - name: runner-volume
+volumes:
+  - name:
       persistentVolumeClaim:
         claimName: runner-volume
-

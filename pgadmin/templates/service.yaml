@@ -15,4 +15,4 @@ spec:
     app: pgadmin
     env: {{ .Values.env }}
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort

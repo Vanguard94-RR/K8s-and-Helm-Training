@@ -6,7 +6,7 @@ metadata:
   namespace: prod
   annotations:
     ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
+  #  kubernetes.io/ingress.class: "nginx"
   #   # Enable client certificate authentication
   #   nginx.ingress.kubernetes.io/auth-tls-verify-client: "on"
   #   # Create the secret containing the trusted ca certificates
@@ -22,6 +22,7 @@ spec:
   #   - secretName: pgadmin-basic-com-tls
   #     hosts:
   #       - pgadmin-basic.com
+  #type: NodePort
   rules:
   - host: pgadmin-basic.com
     http:

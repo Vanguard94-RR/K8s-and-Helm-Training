@@ -23,3 +23,22 @@ then create secret
     kubectl create secret tls pgadmin-basic-com-tls --cert=tls.crt --key=tls.key
 
 STILL IN CONTRUCTION
+
+
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
+
+{{- if eq .Values.env "production" }}
+replicas: 2
+{{- else }}
+replicas: 1
+{{- end }}
+
+## Issues
+
+    Unable to perform rolling update, error in secret
+
+    Unable to log in to database with provided credentials
+
+    Ingress is not working, we can't use the exposed ip and url to access pgadmin
+
+    Unable to use if selector for replicas on deployment chart
